@@ -1,0 +1,286 @@
+[
+  {
+    "id": 1,
+    "title": "Python Developer",
+    "company": "Nimbus Labs",
+    "location": "Hyderabad",
+    "description": "Build and maintain internal recruiting tools using Python and FastAPI. The role focuses on clean REST APIs, reusable services, and readable code for a small product team.",
+    "required_skills": [
+      "Python",
+      "FastAPI",
+      "SQL"
+    ],
+    "experience": "2-4 years",
+    "employment_type": "Full-time",
+    "status": "Active",
+    "created_date": "2026-01-12"
+  },
+  {
+    "id": 2,
+    "title": "Data Analyst",
+    "company": "Northwind Analytics",
+    "location": "Bengaluru",
+    "description": "Analyze hiring funnel metrics and prepare weekly dashboards for the recruitment team. You will write SQL queries and turn raw sample data into simple, readable reports.",
+    "required_skills": [
+      "SQL",
+      "Excel",
+      "Python"
+    ],
+    "experience": "2-4 years",
+    "employment_type": "Full-time",
+    "status": "Active",
+    "created_date": "2026-02-03"
+  },
+  {
+    "id": 3,
+    "title": "Frontend Engineer",
+    "company": "PixelForge",
+    "location": "Remote",
+    "description": "Create recruiter-facing interfaces with React and accessible CSS. You will work on job cards, filters, and responsive layouts for a fictional careers product.",
+    "required_skills": [
+      "React",
+      "JavaScript",
+      "CSS"
+    ],
+    "experience": "1-2 years",
+    "employment_type": "Contract",
+    "status": "Draft",
+    "created_date": "2026-02-18"
+  },
+  {
+    "id": 4,
+    "title": "Backend Engineer",
+    "company": "CloudNest",
+    "location": "Pune",
+    "description": "Design REST services and JSON-based data workflows for job postings. The team values clear validation, careful error handling, and well-documented endpoints.",
+    "required_skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL"
+    ],
+    "experience": "4-6 years",
+    "employment_type": "Full-time",
+    "status": "Active",
+    "created_date": "2026-03-01"
+  },
+  {
+    "id": 5,
+    "title": "HR Intern",
+    "company": "BrightPath Consulting",
+    "location": "Chennai",
+    "description": "Support coordinators with screening checklists and interview scheduling. A learning-focused internship for candidates who enjoy organizing people processes.",
+    "required_skills": [
+      "Communication",
+      "MS Office"
+    ],
+    "experience": "0-1 years",
+    "employment_type": "Internship",
+    "status": "Active",
+    "created_date": "2026-03-10"
+  },
+  {
+    "id": 6,
+    "title": "DevOps Engineer",
+    "company": "Orbit Systems",
+    "location": "Hyderabad",
+    "description": "Automate deployment of internal applications and monitor service health. This opening was closed after the hiring freeze and is kept for records.",
+    "required_skills": [
+      "Linux",
+      "CI/CD",
+      "Docker"
+    ],
+    "experience": "4-6 years",
+    "employment_type": "Full-time",
+    "status": "Archived",
+    "created_date": "2025-11-20"
+  },
+  {
+    "id": 7,
+    "title": "Product Manager",
+    "company": "Northstar Apps",
+    "location": "Mumbai",
+    "description": "Own the recruiter workspace roadmap and gather hiring-team feedback. This senior role was filled internally and archived for reference.",
+    "required_skills": [
+      "Product discovery",
+      "Stakeholder management"
+    ],
+    "experience": "6+ years",
+    "employment_type": "Full-time",
+    "status": "Archived",
+    "created_date": "2026-04-02"
+  },
+  {
+    "id": 8,
+    "title": "QA Tester",
+    "company": "QualityHive",
+    "location": "Delhi",
+    "description": "Test job search and filtering flows and report defects with clear reproduction steps. Part-time role for a detail-oriented tester.",
+    "required_skills": [
+      "Manual testing",
+      "Test cases"
+    ],
+    "experience": "1-2 years",
+    "employment_type": "Part-time",
+    "status": "Draft",
+    "created_date": "2026-04-15"
+  },
+  {
+    "id": 9,
+    "title": "Machine Learning Engineer",
+    "company": "VectorAI",
+    "location": "Bengaluru",
+    "description": "Prototype ranking models that match fictional job descriptions with candidate skills. A fixed-term contract with a small applied research team.",
+    "required_skills": [
+      "Python",
+      "Machine Learning",
+      "Pandas"
+    ],
+    "experience": "2-4 years",
+    "employment_type": "Contract",
+    "status": "Active",
+    "created_date": "2026-05-08"
+  },
+  {
+    "id": 10,
+    "title": "Technical Writer",
+    "company": "DocsCraft",
+    "location": "Remote",
+    "description": "Write recruiter help guides and API usage notes for internal tools. The ideal candidate explains technical topics in plain, friendly language.",
+    "required_skills": [
+      "Writing",
+      "Markdown",
+      "API documentation"
+    ],
+    "experience": "1-2 years",
+    "employment_type": "Part-time",
+    "status": "Active",
+    "created_date": "2026-05-21"
+  },
+  {
+    "id": 11,
+    "title": "Java Developer",
+    "company": "Stackyard Solutions",
+    "location": "Hyderabad",
+    "description": "Maintain Java services that support sample applicant tracking features. You will review pull requests and improve test coverage across the codebase.",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "SQL"
+    ],
+    "experience": "4-6 years",
+    "employment_type": "Full-time",
+    "status": "Active",
+    "created_date": "2026-06-11"
+  },
+  {
+    "id": 12,
+    "title": "UI/UX Design Intern",
+    "company": "Lumen Studio",
+    "location": "Chennai",
+    "description": "Design clean layouts for job cards, filters, and recruiter dashboards. A mentored internship with weekly design reviews.",
+    "required_skills": [
+      "Figma",
+      "Wireframing",
+      "Prototyping"
+    ],
+    "experience": "0-1 years",
+    "employment_type": "Internship",
+    "status": "Draft",
+    "created_date": "2026-07-01"
+  },
+  {
+    "id": 13,
+    "title": "Sales Executive",
+    "company": "Meridian Retail Group",
+    "location": "Delhi",
+    "description": "Present the company's recruitment services to fictional client businesses and maintain the CRM pipeline. Includes a structured onboarding plan.",
+    "required_skills": [
+      "Negotiation",
+      "CRM",
+      "Lead generation"
+    ],
+    "experience": "1-2 years",
+    "employment_type": "Full-time",
+    "status": "Active",
+    "created_date": "2026-07-08"
+  },
+  {
+    "id": 14,
+    "title": "Marketing Intern",
+    "company": "Crestline Media",
+    "location": "Mumbai",
+    "description": "Draft social media posts and short articles about open roles. A six-month internship for a confident writer.",
+    "required_skills": [
+      "Content writing",
+      "Social media"
+    ],
+    "experience": "0-1 years",
+    "employment_type": "Internship",
+    "status": "Active",
+    "created_date": "2026-07-15"
+  },
+  {
+    "id": 15,
+    "title": "Solutions Architect",
+    "company": "SkyHarbor Systems",
+    "location": "Pune",
+    "description": "Design resilient system architectures for enterprise hiring platforms and guide delivery teams. A senior individual-contributor role.",
+    "required_skills": [
+      "AWS",
+      "System design",
+      "Kubernetes"
+    ],
+    "experience": "6+ years",
+    "employment_type": "Full-time",
+    "status": "Active",
+    "created_date": "2026-07-22"
+  },
+  {
+    "id": 16,
+    "title": "React Native Developer",
+    "company": "AppOrbit Studio",
+    "location": "Remote",
+    "description": "Build a mobile companion app that lets recruiters review posted jobs on the go. Contract engagement with a two-person mobile team.",
+    "required_skills": [
+      "React Native",
+      "TypeScript",
+      "REST APIs"
+    ],
+    "experience": "4-6 years",
+    "employment_type": "Contract",
+    "status": "Draft",
+    "created_date": "2026-08-04"
+  },
+  {
+    "id": 17,
+    "title": "Finance Associate",
+    "company": "Ledgerly",
+    "location": "Bengaluru",
+    "description": "Reconcile vendor invoices and support monthly closing activities. Part-time schedule with flexible hours.",
+    "required_skills": [
+      "Accounting",
+      "Tally",
+      "Excel"
+    ],
+    "experience": "2-4 years",
+    "employment_type": "Part-time",
+    "status": "Active",
+    "created_date": "2026-08-18"
+  },
+  {
+    "id": 18,
+    "title": "Data Entry Operator",
+    "company": "SwiftDocs Services",
+    "location": "Delhi",
+    "description": "Digitize paper application forms with high accuracy. This role was archived after the process moved to online submissions.",
+    "required_skills": [
+      "Typing",
+      "MS Excel",
+      "Accuracy"
+    ],
+    "experience": "0-1 years",
+    "employment_type": "Part-time",
+    "status": "Archived",
+    "created_date": "2026-08-25"
+  }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "event": "Job published",
+        "subject": "Senior Backend Engineer",
+        "time": "Today, 09:42"
+    },
+    {
+        "id": 2,
+        "event": "Application status changed",
+        "subject": "Aarav Mehta",
+        "time": "Yesterday, 16:10"
+    },
+    {
+        "id": 3,
+        "event": "Interview scheduled",
+        "subject": "Jon Bell",
+        "time": "Yesterday, 11:24"
+    }
+]

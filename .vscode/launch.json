@@ -1,0 +1,42 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI Backend (debug)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["app.main:app", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "python": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "pattern": "Uvicorn running on (https?://[^\\s]+)",
+        "uriFormat": "%s/docs",
+        "action": "openExternally"
+      }
+    },
+    {
+      "name": "React Frontend (Vite)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}/frontend",
+      "serverReadyAction": {
+        "pattern": "Local: (https?://[^\\s]+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "▶ Full Stack (backend + frontend)",
+      "configurations": [
+        "FastAPI Backend (debug)",
+        "React Frontend (Vite)"
+      ],
+      "stopAll": true
+    }
+  ]
+}

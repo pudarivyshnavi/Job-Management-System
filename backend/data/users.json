@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "name": "Alex Morgan",
+    "role": "Admin",
+    "status": "Active",
+    "last_activity": "Today, 09:42"
+  },
+  {
+    "id": 2,
+    "name": "Priya Nair",
+    "role": "Recruiter",
+    "status": "Active",
+    "last_activity": "Yesterday, 16:10"
+  },
+  {
+    "id": 3,
+    "name": "Sam Lee",
+    "role": "Hiring Manager",
+    "status": "Active",
+    "last_activity": "Yesterday, 11:24"
+  },
+  {
+    "id": 4,
+    "name": "Vyshnavi Pudari",
+    "email": "pudarivyshnavi@gmail.com",
+    "company": "",
+    "role": "Recruiter",
+    "status": "Active",
+    "last_activity": "Just now",
+    "password_hash": "pbkdf2_sha256$240000$p3xKIfm-TEZA9XDSQJbNdg==$tdTMp6a10YJDTE83W3V_4U_z0FIKYIdXaJ938ehn4MM="
+  },
+  {
+    "id": 5,
+    "name": "Upload Live",
+    "email": "upload-live-cfd5aa368f1e44e0b25f2a6365055b4a@example.test",
+    "company": "",
+    "role": "Recruiter",
+    "status": "Active",
+    "last_activity": "Just now",
+    "password_hash": "pbkdf2_sha256$240000$fWdn9e4Khg2s4W7quwUxIA==$96AS_TQR7XHc47CC1A0xBT-76xbEstwkS1BAijByeuo="
+  },
+  {
+    "id": 6,
+    "name": "Upload Live",
+    "email": "upload-live-d0729e14a31944f88ea7f3fd1ef1ebe7@example.test",
+    "company": "",
+    "role": "Recruiter",
+    "status": "Active",
+    "last_activity": "Just now",
+    "password_hash": "pbkdf2_sha256$240000$4vpIfPmo-s55X_3bRExsRg==$5mnzJsC1pctVvWHaWyZdPY_fOX2m8ariMXxhOymrXoA="
+  }
+]

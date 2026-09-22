@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "candidate": "Aarav Mehta",
+        "job": "Senior Backend Engineer",
+        "stage": "Shortlisted",
+        "applied_date": "2026-09-18"
+    },
+    {
+        "id": 2,
+        "candidate": "Mira Shah",
+        "job": "Product Designer",
+        "stage": "Under Review",
+        "applied_date": "2026-09-17"
+    },
+    {
+        "id": 3,
+        "candidate": "Jon Bell",
+        "job": "Frontend Engineer",
+        "stage": "Interview",
+        "applied_date": "2026-09-15"
+    }
+]

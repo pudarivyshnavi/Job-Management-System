@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1,
+        "name": "Aarav Mehta",
+        "role": "Backend Engineer",
+        "location": "Bengaluru",
+        "skills": [
+            "Python",
+            "FastAPI",
+            "PostgreSQL"
+        ],
+        "experience": "4 years",
+        "status": "Shortlisted"
+    },
+    {
+        "id": 2,
+        "name": "Mira Shah",
+        "role": "Product Designer",
+        "location": "Remote",
+        "skills": [
+            "Figma",
+            "Research",
+            "Design systems"
+        ],
+        "experience": "5 years",
+        "status": "Under Review"
+    },
+    {
+        "id": 3,
+        "name": "Jon Bell",
+        "role": "Frontend Engineer",
+        "location": "Pune",
+        "skills": [
+            "React",
+            "TypeScript",
+            "Testing"
+        ],
+        "experience": "3 years",
+        "status": "Interview"
+    }
+]

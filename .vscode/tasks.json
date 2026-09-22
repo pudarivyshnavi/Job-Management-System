@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "backend: uvicorn (reload)",
+      "type": "shell",
+      "command": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+      "args": ["-m", "uvicorn", "app.main:app", "--reload"],
+      "options": {
+        "cwd": "${workspaceFolder}/backend"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "dev"
+      }
+    },
+    {
+      "label": "frontend: vite dev",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "dev"
+      }
+    },
+    {
+      "label": "▶ start: full stack",
+      "dependsOn": [
+        "backend: uvicorn (reload)",
+        "frontend: vite dev"
+      ],
+      "dependsOrder": "parallel",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "quiet"
+      }
+    },
+    {
+      "label": "backend: pytest",
+      "type": "shell",
+      "command": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+      "args": ["-m", "pytest", "tests/", "-v"],
+      "options": {
+        "cwd": "${workspaceFolder}/backend"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "New application received",
+        "message": "Aarav Mehta applied for Senior Backend Engineer.",
+        "time": "18 min ago",
+        "read": false
+    },
+    {
+        "id": 2,
+        "title": "Interview reminder",
+        "message": "Jon Bell's interview is scheduled for tomorrow.",
+        "time": "2 hours ago",
+        "read": false
+    },
+    {
+        "id": 3,
+        "title": "Job published",
+        "message": "Senior Backend Engineer is now visible publicly.",
+        "time": "Yesterday",
+        "read": true
+    }
+]
