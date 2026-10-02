@@ -59,21 +59,10 @@ async function request(path, options = {}) {
   }
 
   if (!response.ok) {
-    if (response.status === 404) {
-      throw new ApiError("Job not found.", 404);
-    }
-    if (response.status === 400) {
-      throw new ApiError(readDetail(payload) || "The request was invalid.", 400);
-    }
-    if (response.status >= 500) {
-      throw new ApiError(
-        "The server could not complete this request. Please try again.",
-        response.status
-      );
-    }
-    throw new ApiError(
-      readDetail(payload) || "The request could not be completed.",
-      response.status
+    throw normalizeApiError(
+      payload,
+      response.status,
+      "The request could not be completed."
     );
   }
 
@@ -88,6 +77,33 @@ function readDetail(payload) {
     return payload.detail;
   }
   return "";
+}
+
+function normalizeApiError(payload, status, fallbackMessage) {
+  const detail = readDetail(payload);
+
+  if (status === 401) {
+    try {
+      localStorage.removeItem("jobboard_token");
+      localStorage.removeItem("jobboard_user");
+    } catch {
+      // Ignore persistence failures in restricted environments.
+    }
+    return new ApiError(detail || "Your session expired. Please sign in again.", 401);
+  }
+  if (status === 400) {
+    return new ApiError(detail || "The request was invalid.", 400);
+  }
+  if (status === 404) {
+    return new ApiError(detail || "The requested record was not found.", 404);
+  }
+  if (status >= 500) {
+    return new ApiError(
+      detail || "The server could not complete this request. Please try again.",
+      status
+    );
+  }
+  return new ApiError(detail || fallbackMessage, status);
 }
 
 export function getJobs(filters = {}) {

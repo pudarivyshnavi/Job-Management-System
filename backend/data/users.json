@@ -49,5 +49,15 @@
     "status": "Active",
     "last_activity": "Just now",
     "password_hash": "pbkdf2_sha256$240000$4vpIfPmo-s55X_3bRExsRg==$5mnzJsC1pctVvWHaWyZdPY_fOX2m8ariMXxhOymrXoA="
+  },
+  {
+    "id": 7,
+    "name": "Verification User",
+    "email": "verify_c185a4ad6a6f46e687d0c00b830f0097@example.test",
+    "company": "Demo Co",
+    "role": "Recruiter",
+    "status": "Active",
+    "last_activity": "Just now",
+    "password_hash": "pbkdf2_sha256$240000$VXWHXkkrmm7QDFnjC8HDxw==$Dej9_ACZmIvosh6wxsTRZZ4bAxzvbmBN7HX2EfoY-YI="
   }
 ]

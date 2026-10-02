@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext.jsx";
 import {
     getAnalytics,
     getApplications,
@@ -12,6 +13,7 @@ import {
 const stageOrder = ["Applied", "Under Review", "Shortlisted", "Interview", "Selected", "Rejected"];
 
 function Dashboard() {
+    const { user } = useAuth();
     const [jobs, setJobs] = useState([]);
     const [applications, setApplications] = useState([]);
     const [candidates, setCandidates] = useState([]);
@@ -84,13 +86,14 @@ function Dashboard() {
 
     const maxStage = Math.max(...stageOrder.map((stage) => stageCounts[stage] || 0), 1);
     const greeting = new Date().getHours() < 12 ? "Good morning" : "Good afternoon";
+    const welcomeName = user?.name || "Recruiter";
 
     return (
         <section className="workspace-page">
             <div className="workspace-heading">
                 <div>
                     <p className="eyebrow">{new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}</p>
-                    <h1>{greeting}, {localStorage.getItem("jobboard_user") ? JSON.parse(localStorage.getItem("jobboard_user"))?.name || "Recruiter" : "Recruiter"}.</h1>
+                    <h1>{greeting}, {welcomeName}.</h1>
                     <p className="subheading">Here is the real status of your recruitment pipeline today.</p>
                 </div>
                 <Link className="btn btn-primary" to="/jobs/new">+ Create Job</Link>
