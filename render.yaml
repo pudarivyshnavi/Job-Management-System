@@ -11,4 +11,4 @@ services:
       - key: AUTH_SECRET
         generateValue: true
       - key: CORS_ORIGINS
-        value: http://localhost:5173,http://127.0.0.1:5173
+        value: https://cool-squirrel-9eee69.netlify.app,http://localhost:5173,http://127.0.0.1:5173
