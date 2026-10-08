@@ -26,36 +26,59 @@ function Protected({ children }) {
 function App() {
   const location = useLocation();
   const publicPage = location.pathname === "/" || location.pathname === "/jobs" || /^\/jobs\/\d+$/.test(location.pathname) || location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/help";
+
+  const primaryLinks = [
+    ["/dashboard", "Overview"],
+    ["/jobs", "Jobs"],
+    ["/ai-assistant", "AI assistant"],
+    ["/candidates", "Candidates"],
+    ["/ai-matching", "AI matching"],
+    ["/resume-analysis", "Resume analysis"],
+    ["/applications", "Applications"],
+    ["/interviews", "Interviews"],
+    ["/analytics", "Analytics"],
+    ["/notifications", "Notifications"],
+  ];
+
+  const secondaryLinks = [
+    ["/activity", "Activity"],
+    ["/users", "Users & roles"],
+    ["/settings", "Settings"],
+    ["/help", "Help"],
+  ];
+
   if (publicPage) {
     return <><Header publicMode /><main className="public-content"><Routes><Route path="/" element={<Landing />} /><Route path="/jobs" element={<JobsListPage />} /><Route path="/jobs/:id" element={<JobDetailsPage />} /><Route path="/login" element={<Login />} /><Route path="/signup" element={<Signup />} /><Route path="/help" element={<HelpPage />} /></Routes></main></>;
   }
+
   return (
-    <div className="app-shell recruiter-shell">
+    <>
       <Header />
-      <aside className="sidebar"><p className="sidebar-label">Workspace</p><nav>{[["/dashboard", "Overview"], ["/jobs", "Jobs"], ["/ai-assistant", "AI assistant"], ["/candidates", "Candidates"], ["/ai-matching", "AI matching"], ["/resume-analysis", "Resume analysis"], ["/applications", "Applications"], ["/interviews", "Interviews"], ["/analytics", "Analytics"], ["/notifications", "Notifications"]].map(([to, label]) => <NavLink key={to} to={to}>{label}</NavLink>)}</nav><p className="sidebar-label lower">Manage</p><nav>{[["/activity", "Activity"], ["/users", "Users & roles"], ["/settings", "Settings"], ["/help", "Help"]].map(([to, label]) => <NavLink key={to} to={to}>{label}</NavLink>)}</nav></aside>
-      <main className="page-content workspace-content"><Protected>
-        <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/jobs" element={<JobsListPage />} />
-          <Route path="/jobs/new" element={<CreateJobPage />} />
-          <Route path="/jobs/:id" element={<JobDetailsPage />} />
-          <Route path="/jobs/:id/edit" element={<EditJobPage />} />
-          <Route path="/ai-assistant" element={<AIAssistant />} />
-          <Route path="/ai-matching" element={<Matching />} />
-          <Route path="/resume-analysis" element={<ResumeAnalysis />} />
-          <Route path="/candidates" element={<ModulePage type="candidates" />} />
-          <Route path="/applications" element={<Applications />} />
-          <Route path="/notifications" element={<ModulePage type="notifications" />} />
-          <Route path="/interviews" element={<Interviews />} />
-          <Route path="/analytics" element={<Dashboard />} />
-          <Route path="/activity" element={<ModulePage type="notifications" />} />
-          <Route path="/users" element={<ModulePage type="candidates" />} />
-          <Route path="/settings" element={<AIAssistant />} />
-          <Route path="/help" element={<HelpPage />} />
-        </Routes>
-      </Protected></main>
-    </div>
+      <main className="page-content workspace-content">
+        <Protected>
+          <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/jobs" element={<JobsListPage />} />
+            <Route path="/jobs/new" element={<CreateJobPage />} />
+            <Route path="/jobs/:id" element={<JobDetailsPage />} />
+            <Route path="/jobs/:id/edit" element={<EditJobPage />} />
+            <Route path="/ai-assistant" element={<AIAssistant />} />
+            <Route path="/ai-matching" element={<Matching />} />
+            <Route path="/resume-analysis" element={<ResumeAnalysis />} />
+            <Route path="/candidates" element={<ModulePage type="candidates" />} />
+            <Route path="/applications" element={<Applications />} />
+            <Route path="/notifications" element={<ModulePage type="notifications" />} />
+            <Route path="/interviews" element={<Interviews />} />
+            <Route path="/analytics" element={<Dashboard />} />
+            <Route path="/activity" element={<ModulePage type="notifications" />} />
+            <Route path="/users" element={<ModulePage type="candidates" />} />
+            <Route path="/settings" element={<AIAssistant />} />
+            <Route path="/help" element={<HelpPage />} />
+          </Routes>
+        </Protected>
+      </main>
+    </>
   );
 }
 

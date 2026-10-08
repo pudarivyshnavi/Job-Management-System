@@ -125,7 +125,7 @@ npm run build
 
 ## Deployment
 
-Build the frontend with `npm run build` and deploy `frontend/dist` to Vercel or another static host. Deploy the FastAPI app to Render, Railway, Fly.io, or equivalent with `uvicorn app.main:app --host 0.0.0.0 --port $PORT`. Configure `VITE_API_URL` at frontend build time and production CORS in the backend. Expose `/health` as the service health check. Update the absolute sitemap URL before submitting it to a search engine.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for the Netlify and Render setup, required environment variables, SPA routing, and JSON persistence limitations. Update the absolute sitemap URL before submitting it to a search engine.
 
 ## Implemented features
 

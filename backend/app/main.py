@@ -4,6 +4,7 @@ from fastapi import (
     Depends,
     FastAPI,
     File,
+    Form,
     Header,
     HTTPException,
     Query,
@@ -332,11 +333,31 @@ def candidate_match(
 
 @app.post("/api/resumes/analyse")
 async def analyse_uploaded_resume(
-    file: UploadFile = File(...), user: dict = Depends(current_user)
+    file: UploadFile = File(...),
+    job_id: str | None = Form(default=None),
+    role: str | None = Form(default=None),
+    user: dict = Depends(current_user),
 ) -> dict:
     content = await file.read()
+    job = None
+    if job_id:
+        try:
+            job = get_job(int(job_id))
+        except (TypeError, ValueError):
+            if not role:
+                raise HTTPException(
+                    status_code=400, detail="The selected role was invalid."
+                )
+        except JobNotFoundError as exc:
+            raise HTTPException(status_code=404, detail=str(exc)) from exc
+
     try:
-        return analyse_resume(file.filename or "resume.txt", content)
+        return analyse_resume(
+            file.filename or "resume.txt",
+            content,
+            job=job,
+            role_name=role or (job.get("title") if job else None),
+        )
     except ValueError as exc:
         return JSONResponse(status_code=422, content={"detail": str(exc)})
 

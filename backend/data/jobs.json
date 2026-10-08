@@ -282,5 +282,30 @@
     "employment_type": "Part-time",
     "status": "Archived",
     "created_date": "2026-08-25"
+  },
+  {
+    "id": 19,
+    "title": "AI Marketing",
+    "company": "Oracle",
+    "location": "Mumbai",
+    "description": "AI Marketing SOftware",
+    "required_skills": [
+      "Communication"
+    ],
+    "experience": "0-5 years",
+    "employment_type": "Full-time",
+    "status": "Active",
+    "work_mode": "Remote",
+    "department": "Software",
+    "category": "Technology",
+    "preferred_skills": [],
+    "responsibilities": [
+      ".."
+    ],
+    "benefits": [
+      "Flexible"
+    ],
+    "workflow_status": "Open",
+    "created_date": "2026-10-02"
   }
 ]

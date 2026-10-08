@@ -3,6 +3,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from app.matching import match_candidate
+
 MAX_RESUME_BYTES = 5 * 1024 * 1024
 ALLOWED_EXTENSIONS = {".txt", ".pdf", ".docx"}
 KNOWN_SKILLS = (
@@ -25,6 +27,28 @@ KNOWN_SKILLS = (
     "rest",
     "cloud",
 )
+ROLE_LIBRARY = {
+    "Frontend Engineer": {
+        "required_skills": ["React", "JavaScript", "CSS", "HTML"],
+        "preferred_skills": ["TypeScript", "Testing"],
+        "experience": "1-2 years",
+    },
+    "Data Analyst": {
+        "required_skills": ["SQL", "Excel", "Python"],
+        "preferred_skills": ["Power BI", "Data Analysis"],
+        "experience": "2-4 years",
+    },
+    "Python Developer": {
+        "required_skills": ["Python", "FastAPI", "SQL"],
+        "preferred_skills": ["Docker", "AWS"],
+        "experience": "2-4 years",
+    },
+    "Product Designer": {
+        "required_skills": ["Figma", "Design systems", "Research"],
+        "preferred_skills": ["UX writing", "Prototyping"],
+        "experience": "3-5 years",
+    },
+}
 
 
 def _normalise_text(value: str) -> str:
@@ -151,7 +175,29 @@ def _detect_keywords(text: str) -> list[str]:
     return [word.title() for word, _ in ranked[:20]]
 
 
-def analyse_resume(filename: str, content: bytes) -> dict[str, Any]:
+def _build_role_profile(role_name: str | None) -> dict[str, Any] | None:
+    if not role_name:
+        return None
+    candidate = role_name.strip()
+    if not candidate:
+        return None
+    for name, profile in ROLE_LIBRARY.items():
+        if name.lower() == candidate.lower():
+            return {"title": name, **profile}
+    return {
+        "title": candidate,
+        "required_skills": [],
+        "preferred_skills": [],
+        "experience": "1-2 years",
+    }
+
+
+def analyse_resume(
+    filename: str,
+    content: bytes,
+    job: dict[str, Any] | None = None,
+    role_name: str | None = None,
+) -> dict[str, Any]:
     text = extract_text(filename, content)
     if not text:
         raise ValueError("The resume did not contain readable text.")
@@ -178,7 +224,7 @@ def analyse_resume(filename: str, content: bytes) -> dict[str, Any]:
     else:
         summary = "Candidate profile: " + " ".join(summary_parts) + "."
 
-    return {
+    result = {
         "filename": filename,
         "candidate": {
             "name": candidate_name or "Not detected",
@@ -202,3 +248,22 @@ def analyse_resume(filename: str, content: bytes) -> dict[str, Any]:
         else "Low",
         "text_preview": _normalise_text(text)[:500],
     }
+
+    selected_role = job or _build_role_profile(role_name)
+    if selected_role:
+        candidate_profile = {
+            "skills": [] if not skills or skills == ["Not detected"] else skills,
+            "experience": experience_value
+            if experience_value != "Not detected"
+            else "0 years",
+        }
+        match = match_candidate(candidate_profile, selected_role)
+        result["role_match"] = {
+            "selected_role": selected_role.get("title") or role_name or "Selected role",
+            **match,
+        }
+        result["selected_role"] = (
+            selected_role.get("title") or role_name or "Selected role"
+        )
+
+    return result

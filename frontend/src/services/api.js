@@ -1,4 +1,9 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+const configuredApiBase = import.meta.env.VITE_API_URL?.trim();
+const API_BASE = configuredApiBase
+  ? configuredApiBase.replace(/\/+$/, "")
+  : import.meta.env.DEV
+    ? "http://127.0.0.1:8000"
+    : "";
 
 export class ApiError extends Error {
   constructor(message, status = 0) {
@@ -29,16 +34,29 @@ function getAuthHeaders() {
 }
 
 async function request(path, options = {}) {
+  if (!API_BASE) {
+    throw new ApiError(
+      "The API server is not configured. Set VITE_API_URL to the deployed backend URL.",
+      0
+    );
+  }
+
   const authHeaders = getAuthHeaders();
+  const requestHeaders = new Headers(options.headers || {});
+
+  if (Object.keys(authHeaders).length > 0) {
+    requestHeaders.set("Authorization", authHeaders.Authorization);
+  }
+
+  if (!(options.body instanceof FormData) && !requestHeaders.has("Content-Type")) {
+    requestHeaders.set("Content-Type", "application/json");
+  }
+
   let response;
   try {
     response = await fetch(`${API_BASE}${path}`, {
-      headers: options.body instanceof FormData ? { ...(options.headers || {}), ...authHeaders } : {
-        "Content-Type": "application/json",
-        ...authHeaders,
-        ...(options.headers || {}),
-      },
       ...options,
+      headers: requestHeaders,
     });
   } catch {
     // fetch only rejects here on network failures (backend down, CORS, offline).
@@ -149,10 +167,17 @@ export function getInterviews() { return request("/api/interviews"); }
 export function scheduleInterview(interview) { return request("/api/interviews", { method: "POST", body: JSON.stringify(interview) }); }
 export function updateApplication(id, payload) { return request(`/api/applications/${id}`, { method: "PATCH", body: JSON.stringify(payload) }); }
 export function getMatch(candidateId, jobId) { return request(`/api/matching/${candidateId}/${jobId}`); }
-export function analyseResume(file) {
+export function analyseResume(file, { jobId = "", role = "" } = {}) {
   const form = new FormData();
+  const normalizedJobId = jobId && /^\d+$/.test(String(jobId)) ? String(jobId) : "";
   form.append("file", file);
-  return request("/api/resumes/analyse", { method: "POST", headers: {}, body: form });
+  if (normalizedJobId) {
+    form.append("job_id", normalizedJobId);
+  }
+  if (role) {
+    form.append("role", role);
+  }
+  return request("/api/resumes/analyse", { method: "POST", body: form });
 }
 export function duplicateJob(id) { return request(`/api/jobs/${id}/duplicate`, { method: "POST" }); }
 export function restoreJob(id) { return request(`/api/jobs/${id}/restore`, { method: "POST" }); }

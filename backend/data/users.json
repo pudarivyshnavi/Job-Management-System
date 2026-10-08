@@ -59,5 +59,15 @@
     "status": "Active",
     "last_activity": "Just now",
     "password_hash": "pbkdf2_sha256$240000$VXWHXkkrmm7QDFnjC8HDxw==$Dej9_ACZmIvosh6wxsTRZZ4bAxzvbmBN7HX2EfoY-YI="
+  },
+  {
+    "id": 8,
+    "name": "Browser Tester",
+    "email": "browser-test-1790947210421@example.test",
+    "company": "Demo Co",
+    "role": "Recruiter",
+    "status": "Active",
+    "last_activity": "Just now",
+    "password_hash": "pbkdf2_sha256$240000$2VpAIVVlVyg7HR4U1aMhcA==$h5ayR1Yi94TUA88osDQGxGt-j0MIFJBjA1QwVm28yeE="
   }
 ]
