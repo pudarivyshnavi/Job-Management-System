@@ -30,6 +30,14 @@ backend/data/*.json
 
 The frontend never reads or writes JSON files. The JSON store is intentionally retained for the internship assignment and is not a multi-user production database.
 
+## System Architecture
+
+The diagram below illustrates the system architecture, including the React frontend, FastAPI backend, JSON-based storage, optional AI integration, and deployment configuration.
+
+<p align="center">
+  <img src="architecture.png" alt="Job Management System Architecture" width="100%">
+</p>
+
 ## Stack and structure
 
 - Frontend: React 18, React Router, Vite, CSS
